@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: serviceb
+  profiles:
+    active: test
+  cloud:
+    config:
+      uri: http://localhost:8888  # URL of the config server
+      name: test-serviceb         # The configuration name in the config server
+      profile: test               # Profile for fetching the configuration (e.g., 'test' profile)
+      label: develop              # Optional: Specify the Git branch/label to fetch from
+      fail-fast: true             # Optional: Fail fast if the config cannot be fetched
+
+  autoconfigure:
+    exclude: 
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration  # Excluding DataSourceAutoConfiguration
